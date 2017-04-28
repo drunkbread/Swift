@@ -1,6 +1,6 @@
 # 函数
 ### 无参数函数
-```
+```swift
 func sayHelloWord() -> String {
 	return "Hello, World!"
 }
@@ -8,7 +8,7 @@ func sayHelloWord() -> String {
 ```
 
 ### 多参数函数
-```
+```swift
 func greet(person: String, hasGreeted: Bool) -> String {
     
     if hasGreeted {
@@ -19,7 +19,7 @@ func greet(person: String, hasGreeted: Bool) -> String {
 }
 ```
 ### 无返回值函数
-```
+```swift
 func greet(person: String, hasGreeted: Bool) {
     
     if hasGreeted {
@@ -32,7 +32,7 @@ func greet(person: String, hasGreeted: Bool) {
 
 被调用时，函数的返回值可以被忽略
 
-```
+```swift
 func printAndCount(string: String) -> Int {
     
     print(string)
@@ -50,7 +50,7 @@ printAndCount(string: "kaka")
 ### 多重返回值函数
 可以用元组（tuple）类型让多个值作为一个复合值从函数中返回。
 
-```
+```swift
 func minMax(array: [Int]) -> (min: Int, max: Int) {
     var currentMin = array[0]
     var currentMax = array[0]
@@ -67,7 +67,7 @@ func minMax(array: [Int]) -> (min: Int, max: Int) {
 minMax(array: [1, 3,4,5,6])
 ```
 ### 可选元组返回类型
-```
+```swift
 func minMax(array: [Int]) -> (min: Int, max: Int)? {
     guard !array.isEmpty else {
         return nil
@@ -92,7 +92,7 @@ if let bounds = minMax(array: [1, 43, 2, -45]) {
 ### 函数参数标签和参数名称
 默认情况下，函数参数使用参数名称作为它们的参数标签。
 
-```
+```swift
 func takeARest(when: String, atPlace: String) {
     print("hahaha")
 }
@@ -101,7 +101,7 @@ takeARest(when: "ss", atPlace: "cc")
 ### 指定参数标签
 可以在函数名称前指定它的参数标签，中间以空格分隔。
 
-```
+```swift
 func takeARest(when: String, stay atPlace: String) {
     print("hahaha")
 }
@@ -110,7 +110,7 @@ takeARest(when: "ss", stay: "cc") // stay 是参数标签
 ### 忽略参数标签
 如果不希望为某个参数添加一个标签，可以使用一个下划线`_`来代替一个明确的参数标签。
 
-```
+```swift
 func takeARest(when: String, _ atPlace: String) {
     print("hahaha")
 }
@@ -119,7 +119,7 @@ takeARest(when: "ss", "cc")
 ### 默认参数值
 在函数体中通过给参数赋值来为任意一个参数定义默认值。当默认值被定义后，调用这个函数的时候可以忽略这个参数。
 
-```
+```swift
 func takeARest(when: String, _ atPlace: String = "Beijing") {
     print("I will take a rest at \(atPlace) \(when)")
 }
@@ -130,7 +130,7 @@ takeARest(when: "tomorrow")
    
 可变参数的传入值在函数体中变为此类型的一个数组。
 
-```
+```swift
 func arithmeticMean(_ numbers: Double...) -> Double {
     var total: Double = 0
     for number in numbers {
@@ -152,7 +152,7 @@ arithmeticMean(1,2,3,4,5)
 > 注意：   
 > 输入输出参数不能有默认值，而且可变参数不能用`inout`标记。
 
-```
+```swift
 func swapTwoInts (_ a: inout Int, _ b: inout Int) {
     let temporaryA = a
     a = b
@@ -170,7 +170,7 @@ print("SomeInt is now \(someInt), anotherInt is now \(anotherInt)")
 ### 函数类型
 每个函数都有特定的函数类型，函数的类型由函数的参数类型和返回类型组成。
 
-```
+```swift
 func addTwoInts(_ a:Int, _ b:Int) -> Int {
     return a + b
 }
@@ -185,20 +185,20 @@ func addTwoInts() {
 ### 使用函数类型
 在swift中，使用函数类型就像使用其他类型一样。
 
-```
+```swift
 var mathFunc: (Int, Int) -> Int = addTwoInts
 mathFunc(2, 3)
 // 得到5
 ```
 当赋值一个函数给常量或者变量时，可以让Swift推断其函数类型
 
-```
+```swift
 let anotherMathFunction = addTwoInts
 // anotherMathFunction 被推断为 (Int, Int) -> Int 类型
 ```
 ### 函数类型作为参数类型
 
-```
+```swift
 func addTwoInts(_ a:Int, _ b:Int) -> Int {
     return a + b
 }
@@ -213,7 +213,7 @@ printMathResult(addTwoInts, 8, 6)
 ### 函数类型作为返回类型
 你可以用函数类型作为另一个函数的返回类型。你需要做的是在返回箭头后写一个完整的函数类型。
 
-```
+```swift
 func stepForward(_ input: Int) -> Int {
     return input + 1
 }
@@ -239,7 +239,7 @@ Zero!
 ```
 
 ### 嵌套函数
-```
+```swift
 
 func chooseStepFunction(backward: Bool) -> (Int) -> Int {
     func stepBackward(input: Int) -> Int { return input - 1 }
